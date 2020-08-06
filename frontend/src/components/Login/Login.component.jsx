@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './login.css';
 
 // A SIMPLE COMPONENT THAT REQUESTS USERNAME WHEN A EVERY NEW CONNECTION IS MADE
 class Login extends Component {
@@ -13,8 +14,8 @@ class Login extends Component {
             <div className="login">
                 <form onSubmit={this.login}>
                     <label>Username:</label>
-                    <input type='text' id='username' />
-                    <input type='submit' value='Log in' />
+                    <input type='text' id='username' /><br/>
+                    <input type='submit' id='submit' value='Log in' />
                 </form>
             </div>
         );
