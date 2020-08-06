@@ -20,11 +20,13 @@ class MessagePanel extends Component {
         }
     }
     // A FUNCTION IS CREATED THAT AUTOMATICALLY 
-    // RETURNS MESSAGE BACK TO THE SERVER SO THAT EVERYONE CAN SEE
+    // SENDS MESSAGE BACK TO THE SERVER SO THAT EVERYONE CAN SEE
     getMessage = (message) => {
         const data = { username: this.props.username, message: message }
 
         this.connection.send(JSON.stringify(data))
+        const toSelf = { username: "you", message: message }
+        this.setState({ messages: [...this.state.messages, toSelf] })
     }
 
 
