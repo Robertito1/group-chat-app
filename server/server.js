@@ -9,12 +9,12 @@ let clients = [];
 // FUNCTION TO PUSH EVERY NEW CONNECTION INTO THE ARRAY AS A CLIENT
 wss.on("connection", (connection) => {
     clients.push(connection);
-    broadcast({ username: "admin", message: "A User Has Joined The Chat" });
+    wss.broadcast({ username: "admin", message: "A User Has Joined The Chat" });
 
     // EVERY MESSAGE RECIEVED BY THE SERVER IS PUBLISHED TO ALL CLIENTS
     connection.on("message", (message) => {
         const data = JSON.parse(message);
-        broadcast(data, connection);
+        wss.broadcast(data, connection);
     });
 });
 
@@ -34,7 +34,7 @@ function cleanUp() {
     );
     clients = clients.filter((client) => client.readyState !== client.CLOSED);
     clientsLeaving.forEach((client) =>
-        broadcast({ username: "admin", message: "A User Has Left The Chat" }, client)
+        wss.broadcast({ username: "admin", message: "A User Has Left The Chat" }, client)
     );
 }
 
