@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './MessageBox.component.css'
 
 class MessageBox extends Component {
 
@@ -13,7 +14,7 @@ class MessageBox extends Component {
     render() {
         return (
             <div className="messageBox">
-                <textarea onKeyDown={this.messageHandler}> </textarea>
+                <textarea className="text" onKeyDown={this.messageHandler}> </textarea>
             </div>
         );
     }
