@@ -14,7 +14,7 @@ class MessageBox extends Component {
     render() {
         return (
             <div className="messageBox">
-                <textarea className="text" onKeyDown={this.messageHandler}> </textarea>
+                <textarea className="text" onKeyDown={this.messageHandler} placeholder='Type Something'> </textarea>
             </div>
         );
     }
